@@ -1,5 +1,5 @@
 name: Deploy
-on: [ "push" ]
+on: [ push ]
 
 jobs:
   lint:
@@ -33,7 +33,7 @@ jobs:
     needs: [ test ]
     runs-on: ubuntu-latest
     steps:
-       - name: Get code
+      - name: Get code
         uses: actions/checkout@v3
       - name: Install node
         uses: actions/node-setup@v3
