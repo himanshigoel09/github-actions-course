@@ -38,6 +38,6 @@ jobs:
       - name: Install node
         uses: actions/node-setup@v3
       - name: Install dependencies
-        uses: npm ci
+        run: npm ci
       - name: Deploy
         run: echo "deploy"
