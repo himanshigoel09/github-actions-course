@@ -36,7 +36,7 @@ jobs:
         run: npm run build
       - name: Publish js file name
         id: filename
-        run: find dist/assets/*.js -type -f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT';'
+        run: find dist/assets/*.js -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT';'
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
