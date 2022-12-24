@@ -23,7 +23,15 @@ jobs:
         run: npm ci
 
       - name: Lint
+        id: test
         run: npm run test
+      - name: test report
+        if: steps.test.outcome == 'failure'
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report
+          path: test.json
+
 
   test:
     needs: [ lint ]
