@@ -23,6 +23,8 @@ jobs:
   test:
     needs: [ lint ]
     runs-on: ubuntu-latest
+    outputs:
+      srcipt-file: ${{ steps.filename.outputs.srcipt-file }}
     steps:
       - name: Get code
         uses: actions/checkout@v3
@@ -32,6 +34,9 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Publish js file name
+        id: filename
+        run: find dist/assets/*.js -type -f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT';'
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -55,5 +60,7 @@ jobs:
           name: dist-files
       - name: Output contents
         run: ls
+      - name: Output file name
+        run: echo "${{ needs.build.output.script-file }}"
       - name: Deploy
         run: echo "deploy "
