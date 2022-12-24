@@ -88,3 +88,9 @@ jobs:
         run: echo "${{ needs.test.outputs.script-file }}"
       - name: Deploy
         run: echo "deploy "
+  report:
+    if: failure() 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output information
+        run: echo "report time !!"
