@@ -40,4 +40,4 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Deploy
-        run: echo "deploy"
+        run: echo "deploy "
