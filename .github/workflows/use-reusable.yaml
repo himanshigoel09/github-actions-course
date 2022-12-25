@@ -2,4 +2,5 @@ name: use-reusable
 on: push
 jobs:
   deploy:
+    name: deploy
     uses: ./.github/worflows/resuable.yaml
