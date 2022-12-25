@@ -1,0 +1,5 @@
+name: use-reusable
+on: push
+jobs:
+  deploy:
+    uses: ./.github/worflows/resuable.yaml

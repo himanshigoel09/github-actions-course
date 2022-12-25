@@ -1,0 +1,8 @@
+name: resuable
+on: workflow_call
+jobs:
+  deploy:
+    runs-on: ubuntu-lates
+    steps:
+      - name: output information
+        run: echo "Deploying and uploading.."
